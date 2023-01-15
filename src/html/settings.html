@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta id="input_viewport" name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/settings.css">
     <link rel="stylesheet" href="../../lib/font-awesome/css/fontawesome.min.css">
@@ -37,32 +37,33 @@
 		<form class="ab-settings-form">
 			<div class="form-group form-name">
 				<label for="name">Your Name:</label>
-				<input type="text" name="name">
+				<input type="text" id="input_name" name="name">
 			</div>
 			<div class="form-group form-years">
 				<label for="years_of_experience">Experience (in years):</label>
-				<input type="number" name="years_of_experience">
+				<input type="number" id="input_years_of_experience" name="years_of_experience">
 			</div>
 			<div class="form-group form-include-name">
 				<label for="include_name">Include your name</label>
 				<div class="input-wrap">
-					<input type="checkbox" name="include_name">
+					<input type="checkbox" id="input_include_name" name="include_name">
 				</div>
 			</div>
 			<div class="form-group form-include-years">
 				<label for="include_years">Include Experience Years</label>
 				<div class="input-wrap">
-					<input type="checkbox" name="include_years">
+					<input type="checkbox" id="input_include_years" name="include_years">
 				</div>
 			</div>
 			<div class="form-group form-include-skills">
 				<label for="include_skills">Include Skill Tags</label>
 				<div class="input-wrap">
-					<input type="checkbox" name="include_skills">
+					<input type="checkbox" id="input_include_skills" name="include_skills">
 				</div>
 			</div>
 			<a class="btn btn-save-settings">Save Settings</a>
 		</form>
+		<div class="settings-notice hidden">Settings Saved</div>
 	</div>
 	<script src="../js/header.js"></script>
 	<script src="../js/settings.js"></script>

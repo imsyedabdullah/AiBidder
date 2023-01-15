@@ -1,12 +1,12 @@
 
-let timer = setInterval(()=>{
+let headerTimer = setInterval(()=>{
 	if(document.querySelector(".header")){
-		clearInterval(timer);
-		init();
+		clearInterval(headerTimer);
+		initHeader();
 	}
 }, 50);
 
-function init(e){	
+function initHeader(){	
 	
 	let settingsIcon = document.querySelector(".header .icon-settings");
 	let backIcon = document.querySelector(".header .icon-back");
