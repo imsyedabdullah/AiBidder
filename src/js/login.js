@@ -23,6 +23,7 @@ function verifyLogin(data) {
 			loginNotice.classList.remove("login-error");
 			loginNotice.innerText = "Logged In Successfully!"; 
 			saveLogin(data);
+			loggedIn();
 		}else{
 			loginNotice.classList.add("login-error");
 			loginNotice.innerText = "Error Logging In. Please check your API key!";
@@ -39,10 +40,10 @@ function removeLogin() {
 	chrome.storage.local.remove("ab_creds");
 }
 
-function loggedIn(url){
+function loggedIn(){
 	setTimeout(()=>{
 		chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
-			chrome.tabs.sendMessage(tabs[0].id, {action: "logged_in", url: url}) ;  
+			chrome.tabs.sendMessage(tabs[0].id, {action: "logged_in"}) ;  
 		});
 	}, 3000);
 }

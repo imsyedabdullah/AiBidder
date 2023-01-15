@@ -1,13 +1,24 @@
-isLoggedIn = false;
-init();
+
+let isLoggedIn = false;
+
+chrome.storage.local.get("ab_creds").then(res=>{
+	if(res?.ab_creds?.timestamp){
+		isLoggedIn = true;
+	}
+	else{
+		isLoggedIn = false;
+	}
+	init();
+});
+
 
 function init(){
 	var popup = document.createElement('div');
-	popup.setAttribute("id", "ab_popup");
+	popup.setAttribute("id", "ab-popup");
 
 	var popup_inner = `
-		<link id="ab_styles" rel="stylesheet" href="${chrome.runtime.getURL("src/css/content.css")}">
-		<div id="ab_body"></div>`;
+		<link id="ab-styles" rel="stylesheet" href="${chrome.runtime.getURL("src/css/content.css")}">
+		<div id="ab-body"></div>`;
 
 	popup.innerHTML += popup_inner;
 	document.body.appendChild(popup);
@@ -15,49 +26,46 @@ function init(){
 
 
 chrome.runtime.onMessage.addListener((msg, sender, res) => {
-	if(msg.action == "ext_clicked" || msg.action == "close_page") {
-		if(document.querySelector("#ab_popup .popup")){
+	console.log("chrome.runtime.onMessage msg", msg);
+	if(msg.action === "ext_clicked" || msg.action === "close_page") {
+		if(document.querySelector("#ab-popup .popup")){
 			toggleIframe();
 		}
 		else if(isLoggedIn){
-			openMainPage();
+			openPage("popup");
 		}
 		else{
-			openLoginPage();
+			openPage("login");
 		}
 	}
-	else if(msg.action == "logged_in") {
-		setTimeout(()=>{
-			isLoggedIn = true;
-			openMainPage(msg.url);
-		}, 3000);
+	else if(msg.action === "logged_in") {
+		isLoggedIn = true;
+		openPage("popup");
 	}
-	else if(msg.action == "page_url") {
-		res(document.URL);
+	else if(msg.action === "logout") {
+		isLoggedIn = false;
+		removeLogin();
+		openPage("login");
 	}
-	else if(msg.action == "context-menu-clicked") {
-		if(isLoggedIn){
-			openMainPage(msg.url);
-		}
-		else{
-			openLoginPage(msg.url);
-		}
+	else if(msg.action === "open_settings") {
+		openPage("options");
 	}
 });
 
 function toggleIframe(){
-	if(document.querySelector("#ab_popup .popup").classList.contains("hidden")){
-		document.querySelector("#ab_popup .popup").classList.remove("hidden");
+	if(document.querySelector("#ab-popup .popup").classList.contains("hidden")){
+		document.querySelector("#ab-popup .popup").classList.remove("hidden");
 	}
 	else{
-		document.querySelector("#ab_popup .popup").classList.add("hidden");
+		document.querySelector("#ab-popup .popup").classList.add("hidden");
 	}
 }
 
-function openLoginPage(url) {
-	document.getElementById("ab_body").innerHTML = "<iframe class='popup ab_login_popup' src='" + chrome.runtime.getURL("src/html/login.html?url=") + url + "'></iframe>";
+function openPage(page) {
+	let url = chrome.runtime.getURL(`src/html/${page}.html`);
+	document.getElementById("ab-body").innerHTML = `<iframe class='popup ab-${page}-page' src='${url}'></iframe>`;
 }
 
-function openMainPage(url){
-	document.getElementById("ab_body").innerHTML = "<iframe class='popup ab_main_popup' src='" + chrome.runtime.getURL("src/html/main.html?url=")+ url + "'></iframe>";
+function removeLogin() {
+	chrome.storage.local.remove("ab-creds");
 }
