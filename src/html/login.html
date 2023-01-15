@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Login Page</title>
+</head>
+<body>
+	<div class="container">
+		<div id="title">
+			<h1>Login</h1>    
+		</div>
+		<div id="login-form">
+			<form>
+				<label>
+					<p>API Key</p>
+					<input type="text" name="api_key" id="api_key" placeholder="Enter your API key here" required>
+				</label>
+				<input type="submit" value="Login">
+			</form>
+		</div>
+		<div id="generate-key">
+			<p>Don't have an API Key?</p>
+			<a role="button" class="btn" target="_blank" href="https://beta.openai.com/account/api-keys">Generate Here</a>
+		</div>
+		<div class="login-notice"></div>
+		<script src="../js/login.js"></script>
+	</div>
+</body>
+</html>
