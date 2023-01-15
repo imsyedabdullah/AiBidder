@@ -32,11 +32,11 @@ function verifyLogin(data) {
 }
 
 function saveLogin(data) {
-	chrome.storage.local.set({ aib_creds: data });
+	chrome.storage.local.set({ ab_creds: data });
 }
 
 function removeLogin() {
-	chrome.storage.local.remove("aib_creds");
+	chrome.storage.local.remove("ab_creds");
 }
 
 function loggedIn(url){
