@@ -11,7 +11,7 @@ function initHeader(){
 	let settingsIcon = document.querySelector(".header .icon-settings");
 	let backIcon = document.querySelector(".header .icon-back");
 	let logoutIcon = document.querySelector(".header .icon-logout");
-	let minIcon = document.querySelector(".header .icon-minimize");
+	let reloadIcon = document.querySelector(".header .icon-reload");
 	let closeIcon = document.querySelector(".header .icon-close");
 
 	if(settingsIcon){
@@ -32,9 +32,22 @@ function initHeader(){
 		}
 	}
 
-	if(minIcon){
-		minIcon.onclick = function(){
-			
+	if(reloadIcon){
+		reloadIcon.onclick = function(){
+			let icon = reloadIcon.querySelector("svg");
+			let angle = 0;
+
+			let animation = setInterval(()=>{
+				if(angle === 360){
+					clearInterval(animation);
+					window.location.reload();
+				}
+				else{
+					angle += 10;
+					icon.style.transform = "rotate(" + angle + "deg)";
+					icon.style.backgroundColor = "unset";
+				}
+			}, 25, angle);
 		}
 	}
 
