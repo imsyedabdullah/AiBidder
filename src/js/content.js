@@ -26,7 +26,6 @@ function init(){
 
 
 chrome.runtime.onMessage.addListener((msg, sender, res) => {
-	console.log("chrome.runtime.onMessage msg", msg);
 	if(msg.action === "ext_clicked" || msg.action === "close_page") {
 		if(document.querySelector("#ab-popup .popup")){
 			toggleIframe();

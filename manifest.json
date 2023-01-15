@@ -1,7 +1,7 @@
 {
     "name": "AiBidder",
     "description": "An extension to write Bids automatically for Freelancer and Upwork",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "manifest_version": 3,
     "background": {
       "service_worker": "src/js/background.js"
