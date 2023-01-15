@@ -6,7 +6,7 @@
 }
 
 #ab-popup .popup{
-    width: 300px;
+    width: 350px;
     border: none;
     border-radius: 10px;
 	background-color: white;
@@ -18,10 +18,10 @@
 }
 
 #ab-popup .ab-login-page{
-    min-height: 315px;
+    min-height: 300px;
 }
 
-#ab-popup .ab-popup-page, #ab-popup .ab-options-page{
+#ab-popup .ab-popup-page, #ab-popup .ab-settings-page{
     min-height: 475px;
 	width: 500px;
 }

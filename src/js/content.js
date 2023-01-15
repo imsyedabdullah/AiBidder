@@ -47,7 +47,10 @@ chrome.runtime.onMessage.addListener((msg, sender, res) => {
 		openPage("login");
 	}
 	else if(msg.action === "open_settings") {
-		openPage("options");
+		openPage("settings");
+	}
+	else if(msg.action === "open_mainpopup") {
+		openPage("popup");
 	}
 });
 

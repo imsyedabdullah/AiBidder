@@ -7,20 +7,41 @@ let timer = setInterval(()=>{
 }, 50);
 
 function init(e){	
-	document.querySelector(".header .icon-settings").onclick = function(){
-		sendMessage("open_settings");
+	
+	let settingsIcon = document.querySelector(".header .icon-settings");
+	let backIcon = document.querySelector(".header .icon-back");
+	let logoutIcon = document.querySelector(".header .icon-logout");
+	let minIcon = document.querySelector(".header .icon-minimize");
+	let closeIcon = document.querySelector(".header .icon-close");
+
+	if(settingsIcon){
+		settingsIcon.onclick = function(){
+			sendMessage("open_settings");
+		}
 	}
 
-	document.querySelector(".header .icon-logout").onclick = function(){
-		sendMessage("logout");
+	if(backIcon){
+		backIcon.onclick = function(){
+			sendMessage("open_mainpopup");
+		}
 	}
 
-	document.querySelector(".header .icon-minimize").onclick = function(){
-		
+	if(logoutIcon){
+		logoutIcon.onclick = function(){
+			sendMessage("logout");
+		}
 	}
 
-	document.querySelector(".header .icon-close").onclick = function(){
-		sendMessage("close_page");
+	if(minIcon){
+		minIcon.onclick = function(){
+			
+		}
+	}
+
+	if(closeIcon){
+		closeIcon.onclick = function(){
+			sendMessage("close_page");
+		}
 	}
 }
 
