@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body{
+    background-color: white;
+    overflow: hidden;
+    font-family: Poppins, sans-serif;
+    text-align: center;
+}
+
+.container{
+	padding: 20px;
+}
+
+#title h1{
+    font-size: 16px;
+}
+
+#login-form, #generate-key{
+    margin: 10px auto;
+}
+
+#login-form{
+	text-align: left;
+}
+#login-form label p{
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+
+#login-form input{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: #f3f3f3;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    font-family: Poppins, sans-serif;
+}
+
+#login-form input[type=submit]{
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+} 
+
+#login-form input[type=submit]{
+    background-color:  #183153;
+}
+
+.login-notice{
+    color: green;
+    font-weight: bold;
+}
+
+.login-error{
+    color: red;
+}
+
+#generate-key p{
+    font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#login-form input[type=submit]:hover{
+	background-color: #1053b1;
+}

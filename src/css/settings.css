@@ -1,0 +1,60 @@
+body{
+	margin: 0;
+	background-color: white;
+    overflow: hidden;
+    font-family: Poppins, sans-serif;
+}
+
+.container{
+	padding: 20px;
+}
+
+.ab-settings-form .form-group{
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 10px;
+}
+
+.ab-settings-form .form-group label{
+	font-size: 14px;
+	width: 40%;
+}
+
+.ab-settings-form .form-group > input, .ab-settings-form .form-group .input-wrap{
+	width: 60%;
+}
+
+.ab-settings-form input{
+	padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #00000050;
+}
+
+.btn-save-settings{
+	display: block;
+    text-align: center;
+    font-size: 15px;
+	background-color: #183153;
+	color: white;
+	width: 100%;
+	padding: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 20px;
+}
+.btn-save-settings:hover{
+	background-color: #1053b1;
+}
+
+.settings-notice{
+    color: green;
+    font-size: 14px;
+    font-weight: bold;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.hidden{
+	display: none;
+}
